@@ -2,8 +2,9 @@
 % Licensed under the BSD license. See LICENSE file in the project root for full license information.
 
 function L = lbp(X, raio, vizinhos) 
+	%%
 	%% Descrição:
-	%%	Calcula o padrões binários locais estendidos de X dado raio e sua vizinhança;	
+	%%	Calcular os padrões binários locais estendidos de X dado o raio e a sua vizinhança;	
 	%%
 	%% Argumentos:
 	%%	raio [int] 
@@ -33,6 +34,7 @@ function L = lbp(X, raio, vizinhos)
 		x = raio * cos(2*pi*((n-1)/vizinhos)) + origx;
 		% relative indices
 		% Indices Relativos
+		%
 		% Valores imediatamente menores
 		fx = floor(x);
 		fy = floor(y);
@@ -50,6 +52,7 @@ function L = lbp(X, raio, vizinhos)
 		w3 = (1 - tx) *      ty ;
 		w4 =      tx  *      ty ;
 		% get interpolated image
+		%
 		% Adquirindo a imagem interpolada, multiplicando o peso de interpolação pela matriz em seus blocos
 		N = w1*X(fy:fy+dy,fx:fx+dx) + w2*X(fy:fy+dy,cx:cx+dx) + w3*X(cy:cy+dy,fx:fx+dx) + w4*X(cy:cy+dy,cx:cx+dx);
 		% calculate binary value for current neighbor, update result
